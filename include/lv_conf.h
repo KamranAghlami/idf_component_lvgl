@@ -1,6 +1,6 @@
 /**
  * @file lv_conf.h
- * Configuration file for v8.3.7
+ * Configuration file for v8.3.9
  */
 
 /*
@@ -187,6 +187,14 @@
     #define LV_GPU_DMA2D_CMSIS_INCLUDE
 #endif
 
+/*Enable RA6M3 G2D GPU*/
+#define LV_USE_GPU_RA6M3_G2D 0
+#if LV_USE_GPU_RA6M3_G2D
+    /*include path of target processor
+    e.g. "hal_data.h"*/
+    #define LV_GPU_RA6M3_G2D_INCLUDE "hal_data.h"
+#endif
+
 /*Use SWM341's DMA2D GPU*/
 #define LV_USE_GPU_SWM341_DMA2D 0
 #if LV_USE_GPU_SWM341_DMA2D
@@ -232,7 +240,7 @@
     *LV_LOG_LEVEL_ERROR       Only critical issue, when the system may fail
     *LV_LOG_LEVEL_USER        Only logs added by the user
     *LV_LOG_LEVEL_NONE        Do not log anything*/
-    #define LV_LOG_LEVEL LV_LOG_LEVEL_WARN
+    #define LV_LOG_LEVEL LV_LOG_LEVEL_INFO
 
     /*1: Print the log with 'printf';
     *0: User need to register a callback with `lv_log_register_print_cb()`*/
@@ -613,7 +621,7 @@
 #if LV_USE_FS_POSIX
     #define LV_FS_POSIX_LETTER 'F'     /*Set an upper cased letter on which the drive will accessible (e.g. 'A')*/
     #define LV_FS_POSIX_PATH ""         /*Set the working directory. File/directory paths will be appended to it.*/
-    #define LV_FS_POSIX_CACHE_SIZE  4U * 1024U   /*>0 to cache this number of bytes in lv_fs_read()*/
+    #define LV_FS_POSIX_CACHE_SIZE 0    /*>0 to cache this number of bytes in lv_fs_read()*/
 #endif
 
 /*API for CreateFile, ReadFile, etc*/
@@ -645,7 +653,7 @@
 #define LV_USE_GIF 0
 
 /*QR code library*/
-#define LV_USE_QRCODE 0
+#define LV_USE_QRCODE 1
 
 /*FreeType library*/
 #define LV_USE_FREETYPE 0
@@ -680,7 +688,7 @@
  *----------*/
 
 /*1: Enable API to take snapshot for object*/
-#define LV_USE_SNAPSHOT 0
+#define LV_USE_SNAPSHOT 1
 
 /*1: Enable Monkey test*/
 #define LV_USE_MONKEY 0
