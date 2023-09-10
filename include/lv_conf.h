@@ -240,7 +240,7 @@
     *LV_LOG_LEVEL_ERROR       Only critical issue, when the system may fail
     *LV_LOG_LEVEL_USER        Only logs added by the user
     *LV_LOG_LEVEL_NONE        Do not log anything*/
-    #define LV_LOG_LEVEL LV_LOG_LEVEL_WARN
+    #define LV_LOG_LEVEL LV_LOG_LEVEL_INFO
 
     /*1: Print the log with 'printf';
     *0: User need to register a callback with `lv_log_register_print_cb()`*/
@@ -279,14 +279,14 @@
  *-----------*/
 
 /*1: Show CPU usage and FPS count*/
-#define LV_USE_PERF_MONITOR 0
+#define LV_USE_PERF_MONITOR 1
 #if LV_USE_PERF_MONITOR
     #define LV_USE_PERF_MONITOR_POS LV_ALIGN_BOTTOM_RIGHT
 #endif
 
 /*1: Show the used memory and the memory fragmentation
  * Requires LV_MEM_CUSTOM = 0*/
-#define LV_USE_MEM_MONITOR 0
+#define LV_USE_MEM_MONITOR 1
 #if LV_USE_MEM_MONITOR
     #define LV_USE_MEM_MONITOR_POS LV_ALIGN_BOTTOM_LEFT
 #endif
